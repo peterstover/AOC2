@@ -1,7 +1,7 @@
 library(readxl)
 library(dplyr)
 library(ggplot2)
-{#import data
+#import data
   X2022_geography_reference_manual <- read_excel("C:/Users/peter/Downloads/2022-geography-reference-manual.xlsx")
   RUCA <- read_excel("C:/Users/peter/Downloads/ruca2010revised (1).xlsx")
   nonmetro_counties <- X2022_geography_reference_manual
@@ -40,4 +40,3 @@ pull_all_tracts <- function(statistic, year) {
     
   }
   
-}
