@@ -16,7 +16,7 @@ library(ggplot2)
   RUCA4_nm_tracts <- nonmetro_tracts %>%
     filter(`Primary RUCA Code 2010`>=4)
   RUCA4_m_tracts <- metro_tracts %>%
-    filter(`Primary RUCA Code 2010`>=4)}
+    filter(`Primary RUCA Code 2010`>=4)
 
 pull_all_tracts <- function(statistic, year) {
   library(tidycensus)
