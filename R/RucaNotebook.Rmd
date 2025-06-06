@@ -26,22 +26,16 @@ metro_tracts <- RUCA %>%
 nonmetro_tracts <- RUCA %>%
     anti_join(metro_counties, by = c("State-County FIPS Code" = "FIPS_State_County"))
 nmt <- nonmetro_tracts %>%
-    filter(`Primary RUCA Code 2010`==4)%>%
-   filter({
-    Q1 <- quantile(`Population Density (per square mile), 2010`, 0.25, na.rm = TRUE)
-    Q3 <- quantile(`Population Density (per square mile), 2010`, 0.75, na.rm = TRUE)
-    IQR_val <- Q3 - Q1
-    `Population Density (per square mile), 2010` >= (Q1 - 2 * IQR_val) & `Population Density (per square mile), 2010` <= (Q3 + 2 * IQR_val)
-  })
+    filter(`Primary RUCA Code 2010`==4)
 mt<- metro_tracts %>%
-    filter(`Primary RUCA Code 2010`==4)%>%
-   filter({
-    Q1 <- quantile(`Population Density (per square mile), 2010`, 0.25, na.rm = TRUE)
-    Q3 <- quantile(`Population Density (per square mile), 2010`, 0.75, na.rm = TRUE)
-    IQR_val <- Q3 - Q1
-    `Population Density (per square mile), 2010` >= (Q1 - 2 * IQR_val) & `Population Density (per square mile), 2010` <= (Q3 + 2 * IQR_val)
-  })
-
+    filter(`Primary RUCA Code 2010`==4)
+mpolis<- RUCA%>%
+  filter(`Primary RUCA Code 2010`==1)
+national<-RUCA
+nm45<- nonmetro_tracts %>%
+    filter(`Primary RUCA Code 2010`==4|`Primary RUCA Code 2010`==5)
+mt45<- metro_tracts %>%
+    filter(`Primary RUCA Code 2010`==4|`Primary RUCA Code 2010`==5)
 ```
 
 Now we have all the census tracts with RUCA codes equal to four broken down by county type -- those that contain a metropolitan area, and those that do not.
