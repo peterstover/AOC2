@@ -1,4 +1,4 @@
-tpull_ACS_yrs_fast <- function(variable_code, population = "B01001_001", years,
+npull_ACS_yrs_fast <- function(variable_code, population = "B01001_001", years,
                                          metro_trimmed = mt, nmetro_trimmed = nmt,
                                          crosswalk_path = "C:/Users/peter/Documents/ct20_ct10_xwalk.csv"
                                          ){
